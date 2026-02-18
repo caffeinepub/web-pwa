@@ -1,0 +1,132 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Live Mock Site (Website-first, no PWA)",
+  "requirements": [
+    {
+      "id": "REQ-6",
+      "summary": "Disable all PWA behavior (no manifest, no service worker registration/caching, no offline fallback UI).",
+      "acceptanceCriteria": [
+        "The site does not register a service worker in production (no /sw.js registration).",
+        "frontend/index.html no longer includes PWA-specific metadata/links (at minimum: <link rel='manifest'> and Apple web app meta tags are removed).",
+        "The app UI does not show PWA/offline-status UI intended for PWA mode (e.g., OfflineNotice is not rendered).",
+        "/manifest.webmanifest and /offline.html are no longer referenced by the app entry HTML or runtime code."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Remove PWA metadata/links (manifest link and Apple web app meta tags) and ensure no references remain to /manifest.webmanifest or other installability-related tags."
+        },
+        {
+          "path": "frontend/src/pwa/registerServiceWorker.ts",
+          "operation": "modify",
+          "description": "Disable service worker registration behavior so production builds never attempt to register /sw.js (website-first delivery)."
+        },
+        {
+          "path": "frontend/src/main.tsx",
+          "operation": "modify",
+          "description": "Ensure the app bootstrap does not call any service worker registration helper and does not wire in any PWA-only runtime behavior."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Remove rendering of the PWA offline-status UI (e.g., OfflineNotice) so no PWA/offline banner appears during normal website usage."
+        },
+        {
+          "path": "frontend/public/manifest.webmanifest",
+          "operation": "delete",
+          "description": "Delete the PWA manifest so it cannot be served/used for installability."
+        },
+        {
+          "path": "frontend/public/offline.html",
+          "operation": "delete",
+          "description": "Delete the offline fallback page so the site has no offline fallback experience."
+        },
+        {
+          "path": "frontend/public/sw.js",
+          "operation": "delete",
+          "description": "Delete the service worker script so no caching/offline behavior can be enabled."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Expand the landing page into a fully clickable demo with working navigation and CTA flows (no dead links).",
+      "acceptanceCriteria": [
+        "Primary navigation items and the main CTA buttons all lead somewhere meaningful within the website (either scroll-to sections or routed pages) and do not result in no-op clicks.",
+        "If sections are used: each nav item scrolls to an existing section with matching anchor/id, and each section contains non-trivial placeholder content (headings, paragraphs, and at least one action).",
+        "If routed pages are used: each nav item changes the view to a dedicated page, and each page contains non-trivial placeholder content and at least one CTA that navigates to another page/section.",
+        "No console errors occur when using the navigation and CTAs."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/landing/AboutSection.tsx",
+          "operation": "create",
+          "description": "Create an About section component with id=\"about\" containing non-trivial placeholder content and at least one CTA that navigates to another section. Use shadcn-ui components (e.g., Button) for CTAs. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/landing/ContactSection.tsx",
+          "operation": "create",
+          "description": "Create a Contact section component with id=\"contact\" containing non-trivial placeholder content and at least one CTA that navigates to another section (e.g., back to features or top). Use shadcn-ui components (e.g., Button) for CTAs. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the new About and Contact sections into the landing page so header/footer navigation items (#about, #contact) scroll to real sections and all content is reachable."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteHeader.tsx",
+          "operation": "modify",
+          "description": "Ensure all primary nav items scroll to existing section ids and update the 'Get Started' CTA to navigate meaningfully (e.g., scroll to #contact or #about). Keep using shadcn-ui Sheet/Button for mobile/desktop CTAs. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/landing/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Make the hero CTA buttons navigate to meaningful on-site destinations (e.g., scroll to #features, #about, or #contact) with no dead clicks. Keep using the shadcn-ui Button component for CTAs. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteFooter.tsx",
+          "operation": "modify",
+          "description": "Replace footer 'Resources' dead links (#) with meaningful in-site links (anchors to existing sections) so the footer contains no no-op navigation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Update branding and copy to be website-focused and remove PWA-centric language from UI and metadata.",
+      "acceptanceCriteria": [
+        "The visible header branding text no longer says 'Web PWA'.",
+        "frontend/index.html title and meta description are updated to describe a website (not a Progressive Web App).",
+        "Any remaining PWA-centric copy in the UI is removed or rewritten to website-centric language."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Update document title and meta description to website-focused branding/copy (remove Progressive Web App wording)."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteHeader.tsx",
+          "operation": "modify",
+          "description": "Update visible header branding text to remove 'Web PWA' and use website-first naming. Keep using shadcn-ui components already in use (Button/Sheet). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/layout/SiteFooter.tsx",
+          "operation": "modify",
+          "description": "Update footer branding and descriptive copy to remove PWA/install-focused language and reflect a standard website demo."
+        },
+        {
+          "path": "frontend/src/components/landing/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Rewrite hero pill text, description, and metrics to remove install/offline/PWA-centric claims and replace them with website-demo-focused placeholder copy. Keep using shadcn-ui Button for CTAs. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/landing/FeaturesSection.tsx",
+          "operation": "modify",
+          "description": "Rewrite feature titles/descriptions to remove PWA-centric features (install/offline/auto updates) and replace with website-first placeholder benefits while continuing to use the existing shadcn-ui Card primitives already referenced. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

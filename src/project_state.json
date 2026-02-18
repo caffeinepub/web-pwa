@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Build a complete live mock website (fully clickable demo) as the first priority; defer/remove PWA scope for now.",
+  "architectural_notes": [
+    "Scope change: prioritize a fully clickable live website mock; PWA work is deferred/not in scope for the first release."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-build-the-website-frontend-with-a-complete-responsive-landing-experience-header-nav-hero-feature-sections-and-footer-suitable-for-both-desktop-and-mobile",
+      "title": "Build the website frontend with a complete, responsive landing experience (header/nav, hero, feature sections, and footer) suitable for both desktop and mobile.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-progressive-web-app-pwa-support-so-the-website-is-installable-and-provides-an-app-like-experience-web-app-manifest-service-worker",
+      "title": "Add Progressive Web App (PWA) support so the website is installable and provides an app-like experience (web app manifest + service worker).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-offline-friendly-experience-for-the-pwa-with-a-clear-offline-fallback-page-screen-when-the-user-opens-the-app-without-connectivity",
+      "title": "Implement an offline-friendly experience for the PWA with a clear offline fallback page/screen when the user opens the app without connectivity.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-pwa-icon-assets-to-the-project-as-static-files-and-reference-them-from-the-manifest-and-html-favicon-apple-touch-icon-where-appropriate",
+      "title": "Add generated PWA icon assets to the project as static files and reference them from the manifest and HTML (favicon / apple-touch-icon where appropriate).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-choose-and-apply-a-coherent-visual-theme-colors-typography-spacing-and-component-styling-and-enforce-it-consistently-across-the-site",
+      "title": "Choose and apply a coherent visual theme (colors, typography, spacing, and component styling) and enforce it consistently across the site.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-disable-progressive-web-app-pwa-behavior-so-the-deliverable-is-a-standard-website-no-installability-no-service-worker-caching-no-offline-fallback-page-experience",
+      "title": "Remove/disable Progressive Web App (PWA) behavior so the deliverable is a standard website (no installability, no service worker caching, no offline fallback page experience).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-expand-the-current-landing-page-into-a-fully-clickable-live-mock-website-demo-by-implementing-clickable-navigation-and-call-to-action-flows-that-lead-to-dedicated-on-site-sections-pages-with-real-placeholder-content-no-dead-links",
+      "title": "Expand the current landing page into a fully clickable live mock website demo by implementing clickable navigation and call-to-action flows that lead to dedicated on-site sections/pages with real placeholder content (no dead links).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-site-branding-and-copy-to-be-website-focused-remove-web-pwa-naming-and-pwa-centric-descriptions-from-visible-ui-and-document-metadata",
+      "title": "Update site branding and copy to be website-focused (remove 'Web PWA' naming and PWA-centric descriptions from visible UI and document metadata).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-2",
+      "summary": "Deliver a complete live mock website (fully clickable demo) as the initial focus (website first).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Web PWA",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

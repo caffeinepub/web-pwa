@@ -1,0 +1,101 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-18T04:15:51.710Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 3,
+    "items": [
+      {
+        "id": "REQ-6",
+        "summary": "Remove/disable Progressive Web App (PWA) behavior so the deliverable is a standard website (no installability, no service worker caching, no offline fallback page experience).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/index.html",
+          "frontend/src/pwa/registerServiceWorker.ts",
+          "frontend/src/main.tsx",
+          "frontend/src/App.tsx",
+          "frontend/public/manifest.webmanifest",
+          "frontend/public/offline.html",
+          "frontend/public/sw.js"
+        ],
+        "matchedFiles": [
+          "frontend/index.html",
+          "frontend/src/pwa/registerServiceWorker.ts",
+          "frontend/src/App.tsx",
+          "frontend/public/manifest.webmanifest",
+          "frontend/public/offline.html",
+          "frontend/public/sw.js"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Expand the current landing page into a fully clickable live mock website demo by implementing clickable navigation and call-to-action flows that lead to dedicated on-site sections/pages with real placeholder content (no dead links).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/landing/AboutSection.tsx",
+          "frontend/src/components/landing/ContactSection.tsx",
+          "frontend/src/App.tsx",
+          "frontend/src/components/layout/SiteHeader.tsx",
+          "frontend/src/components/landing/HeroSection.tsx",
+          "frontend/src/components/layout/SiteFooter.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/landing/AboutSection.tsx",
+          "frontend/src/components/landing/ContactSection.tsx",
+          "frontend/src/App.tsx",
+          "frontend/src/components/layout/SiteHeader.tsx",
+          "frontend/src/components/landing/HeroSection.tsx",
+          "frontend/src/components/layout/SiteFooter.tsx"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Update site branding and copy to be website-focused (remove 'Web PWA' naming and PWA-centric descriptions from visible UI and document metadata).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/index.html",
+          "frontend/src/components/layout/SiteHeader.tsx",
+          "frontend/src/components/layout/SiteFooter.tsx",
+          "frontend/src/components/landing/HeroSection.tsx",
+          "frontend/src/components/landing/FeaturesSection.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/index.html",
+          "frontend/src/components/layout/SiteHeader.tsx",
+          "frontend/src/components/layout/SiteFooter.tsx",
+          "frontend/src/components/landing/HeroSection.tsx",
+          "frontend/src/components/landing/FeaturesSection.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/index.html",
+    "frontend/public/manifest.webmanifest",
+    "frontend/public/offline.html",
+    "frontend/public/sw.js",
+    "frontend/src/App.tsx",
+    "frontend/src/components/landing/AboutSection.tsx",
+    "frontend/src/components/landing/ContactSection.tsx",
+    "frontend/src/components/landing/FeaturesSection.tsx",
+    "frontend/src/components/landing/HeroSection.tsx",
+    "frontend/src/components/layout/SiteFooter.tsx",
+    "frontend/src/components/layout/SiteHeader.tsx",
+    "frontend/src/components/pwa/OfflineNotice.tsx",
+    "frontend/src/pwa/registerServiceWorker.ts",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

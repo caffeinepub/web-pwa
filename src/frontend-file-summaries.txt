@@ -1,0 +1,20 @@
+{
+  "frontend/src/index.css": "Global styles with warm earthy OKLCH color palette (avoiding blue/purple), custom typography scale, and base element styling for both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with custom fonts, warm color tokens, varied border radii, soft shadows, and custom animations.",
+  "frontend/index.html": "HTML entry point with website-focused metadata, removed all PWA-specific tags (manifest link, Apple web app meta tags).",
+  "frontend/public/manifest.webmanifest": "Web app manifest defining PWA metadata, display mode (standalone), theme colors, and icon references for installability.",
+  "frontend/public/sw.js": "Service worker implementing install/activate/fetch lifecycle with core asset caching and offline fallback support.",
+  "frontend/public/offline.html": "Standalone offline fallback page with inline styles showing a friendly \"You're Offline\" message and retry button.",
+  "frontend/src/pwa/registerServiceWorker.ts": "Service worker registration disabled (empty function) for standard website delivery.",
+  "frontend/src/main.tsx": "Application entry point rendering the React app with QueryClient and InternetIdentity providers, no service worker registration.",
+  "frontend/src/App.tsx": "Main app component composing header, hero, features, about, contact sections, and footer without PWA offline notice.",
+  "frontend/src/components/layout/SiteLayout.tsx": "Shared layout wrapper component providing consistent max-width container and horizontal padding.",
+  "frontend/src/components/layout/SiteHeader.tsx": "Responsive header with \"Modern Web\" branding, smooth scroll navigation to all sections, and functional \"Get in Touch\" CTA.",
+  "frontend/src/components/layout/SiteFooter.tsx": "Footer with website-focused branding, functional scroll-to-section links replacing dead links, and Caffeine attribution.",
+  "frontend/src/components/landing/HeroSection.tsx": "Hero section with website demo messaging, functional CTAs scrolling to features and contact sections, and modern web metrics.",
+  "frontend/src/components/landing/FeaturesSection.tsx": "Features grid displaying six website-focused feature cards (design, responsive, performance, security, mobile-first, clean code).",
+  "frontend/src/components/pwa/OfflineNotice.tsx": "Inline banner component that detects online/offline status and displays contextual notifications.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks file for backend data fetching (placeholder example included).",
+  "frontend/src/components/landing/AboutSection.tsx": "About section with mission/values cards and detailed description of the demo, includes CTA to contact section.",
+  "frontend/src/components/landing/ContactSection.tsx": "Contact section with contact info cards, functional demo form, and CTAs to scroll to other sections or back to top."
+}

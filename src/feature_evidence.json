@@ -1,0 +1,73 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-remove-disable-progressive-web-app-pwa-behavior-so-the-deliverable-is-a-standard-website-no-installability-no-service-worker-caching-no-offline-fallback-page-experience",
+      "featureTitle": "Remove/disable Progressive Web App (PWA) behavior so the deliverable is a standard website (no installability, no service worker caching, no offline fallback page experience).",
+      "files": [
+        "frontend/index.html",
+        "frontend/public/manifest.webmanifest",
+        "frontend/public/offline.html",
+        "frontend/public/sw.js",
+        "frontend/src/App.tsx",
+        "frontend/src/pwa/registerServiceWorker.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-expand-the-current-landing-page-into-a-fully-clickable-live-mock-website-demo-by-implementing-clickable-navigation-and-call-to-action-flows-that-lead-to-dedicated-on-site-sections-pages-with-real-placeholder-content-no-dead-links",
+      "featureTitle": "Expand the current landing page into a fully clickable live mock website demo by implementing clickable navigation and call-to-action flows that lead to dedicated on-site sections/pages with real placeholder content (no dead links).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/landing/AboutSection.tsx",
+        "frontend/src/components/landing/ContactSection.tsx",
+        "frontend/src/components/landing/HeroSection.tsx",
+        "frontend/src/components/layout/SiteFooter.tsx",
+        "frontend/src/components/layout/SiteHeader.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-site-branding-and-copy-to-be-website-focused-remove-web-pwa-naming-and-pwa-centric-descriptions-from-visible-ui-and-document-metadata",
+      "featureTitle": "Update site branding and copy to be website-focused (remove 'Web PWA' naming and PWA-centric descriptions from visible UI and document metadata).",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/components/landing/FeaturesSection.tsx",
+        "frontend/src/components/landing/HeroSection.tsx",
+        "frontend/src/components/layout/SiteFooter.tsx",
+        "frontend/src/components/layout/SiteHeader.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

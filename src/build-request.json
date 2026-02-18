@@ -1,0 +1,90 @@
+{
+  "kind": "build_request",
+  "title": "Website-first clickable live mock (disable PWA features)",
+  "projectName": "Live Mock Site",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-6",
+      "text": "Remove/disable Progressive Web App (PWA) behavior so the deliverable is a standard website (no installability, no service worker caching, no offline fallback page experience).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "A complete live mock website (fully clickable demo) i want a website first not PWA"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The site does not register a service worker in production (no /sw.js registration).",
+        "frontend/index.html no longer includes PWA-specific metadata/links (at minimum: <link rel='manifest'> and Apple web app meta tags are removed).",
+        "The app UI does not show PWA/offline-status UI intended for PWA mode (e.g., OfflineNotice is not rendered).",
+        "/manifest.webmanifest and /offline.html are no longer referenced by the app entry HTML or runtime code."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Expand the current landing page into a fully clickable live mock website demo by implementing clickable navigation and call-to-action flows that lead to dedicated on-site sections/pages with real placeholder content (no dead links).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "A complete live mock website (fully clickable demo) i want a website first not PWA"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Primary navigation items and the main CTA buttons all lead somewhere meaningful within the website (either scroll-to sections or routed pages) and do not result in no-op clicks.",
+        "If sections are used: each nav item scrolls to an existing section with matching anchor/id, and each section contains non-trivial placeholder content (headings, paragraphs, and at least one action).",
+        "If routed pages are used: each nav item changes the view to a dedicated page, and each page contains non-trivial placeholder content and at least one CTA that navigates to another page/section.",
+        "No console errors occur when using the navigation and CTAs."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Update site branding and copy to be website-focused (remove 'Web PWA' naming and PWA-centric descriptions from visible UI and document metadata).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "i want a website first not PWA"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The visible header branding text no longer says 'Web PWA'.",
+        "frontend/index.html title and meta description are updated to describe a website (not a Progressive Web App).",
+        "Any remaining PWA-centric copy in the UI is removed or rewritten to website-centric language."
+      ]
+    }
+  ],
+  "constraints": [
+    "Frontend files under frontend/src/components/ui and other paths listed in frontend.immutablePaths must not be edited directly (compose and reuse them).",
+    "Backend must remain a single Motoko actor in backend/main.mo; no additional backend services.",
+    "Do not introduce third-party auth providers; only Internet Identity is allowed (if auth is used at all)."
+  ],
+  "nonGoals": [
+    "Adding or restoring PWA functionality (manifest, install prompts, service worker, offline caching, offline fallback page).",
+    "Implementing real backend business logic or persistence (this request is for a live mock/clickable demo website).",
+    "Integrations with external databases, real-time services, or third-party APIs."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [
+      "Website-first delivery (no PWA) for initial demo"
+    ],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}
